@@ -91,7 +91,7 @@ const Hero = () => {
           transition={{ delay: 0.3, duration: 0.5 }}
           style={{ fontSize: 'clamp(3.5rem, 10vw, 6rem)', marginBottom: '1rem', lineHeight: '1.1', fontWeight: '900', letterSpacing: '-2px' }}
         >
-          <span className="gradient-text">AKILA</span> <br/> UDANTHA perera
+          <span className="gradient-text">AKILA</span> <br/> UDANTHA
         </motion.h1>
 
         <motion.h3
