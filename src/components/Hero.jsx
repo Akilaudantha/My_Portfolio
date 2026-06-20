@@ -7,13 +7,13 @@ import profileImg from '../assets/profile.jpeg';
 const Hero = () => {
   return (
     <section id="home" className="section-container" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Background glowing orbs */}
+      {/* Background glowing orbs - Responsive */}
       <div style={{
         position: 'absolute',
         top: '-5%',
         left: '10%',
-        width: '600px',
-        height: '600px',
+        width: 'clamp(200px, 60vw, 600px)',
+        height: 'clamp(200px, 60vw, 600px)',
         background: 'radial-gradient(circle, #00d4ff 0%, transparent 70%)',
         opacity: '0.2',
         filter: 'blur(80px)',
@@ -24,8 +24,8 @@ const Hero = () => {
         position: 'absolute',
         bottom: '0%',
         right: '5%',
-        width: '500px',
-        height: '500px',
+        width: 'clamp(150px, 50vw, 500px)',
+        height: 'clamp(150px, 50vw, 500px)',
         background: 'radial-gradient(circle, #7f39fb 0%, transparent 70%)',
         opacity: '0.2',
         filter: 'blur(80px)',
@@ -36,8 +36,8 @@ const Hero = () => {
         position: 'absolute',
         top: '50%',
         left: '-10%',
-        width: '400px',
-        height: '400px',
+        width: 'clamp(150px, 45vw, 400px)',
+        height: 'clamp(150px, 45vw, 400px)',
         background: 'radial-gradient(circle, #ff006e 0%, transparent 70%)',
         opacity: '0.15',
         filter: 'blur(80px)',
@@ -51,8 +51,8 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
           style={{
-            width: '220px',
-            height: '220px',
+            width: 'clamp(140px, 35vw, 220px)',
+            height: 'clamp(140px, 35vw, 220px)',
             borderRadius: '50%',
             background: 'var(--accent-gradient)',
             padding: '4px',

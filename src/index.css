@@ -200,23 +200,6 @@ a {
   transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Enhanced responsive design */
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-  }
-  
-  .btn {
-    padding: 0.8rem 2rem;
-    font-size: 0.95rem;
-  }
-  
-  .section-container {
-    padding: 60px 4%;
-  }
-}
-
 /* Glassmorphism enhanced */
 .glass-panel::before {
   content: '';
@@ -227,9 +210,312 @@ a {
   pointer-events: none;
 }
 
-/* Text enhancements */
-@media (min-width: 1024px) {
+/* ========== COMPREHENSIVE MOBILE RESPONSIVE DESIGN ========== */
+
+/* Extra Small Devices (320px - 480px) */
+@media (max-width: 480px) {
+  /* Root variables for smaller screens */
+  :root {
+    --text-large: 1rem;
+    --text-normal: 0.9rem;
+    --text-small: 0.8rem;
+  }
+
+  /* Typography adjustments */
+  .section-container {
+    min-height: auto;
+    padding: 50px 3.5%;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0px;
+  }
+
+  .section-title::after {
+    width: 60px;
+    height: 4px;
+    bottom: -10px;
+  }
+
+  /* Button adjustments */
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Grid adjustments */
+  [style*="grid-template-columns: 'repeat(auto-fit, minmax"]"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduced shadows and blur effects for performance */
+  .glass-panel {
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .glass-panel:hover {
+    transform: translateY(-3px);
+  }
+
+  /* Text size adjustments */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  /* Profile image size */
+  img[style*="width: '220px'"] {
+    width: 160px !important;
+    height: 160px !important;
+  }
+}
+
+/* Small Devices (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+  .section-container {
+    padding: 60px 4%;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.8rem;
+    font-size: 0.9rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .glass-panel {
+    padding: 1.5rem;
+  }
+}
+
+/* Tablet & Medium Devices (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .section-container {
+    padding: 70px 4.5%;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+  }
+
+  .btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .glass-panel {
+    padding: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Medium Devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-container {
+    padding: 80px 5%;
+  }
+
+  .section-title {
+    font-size: 3.2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .btn {
+    padding: 0.85rem 2.2rem;
+    font-size: 0.98rem;
+  }
+
+  .glass-panel {
+    padding: 2rem;
+  }
+}
+
+/* Large Devices (1025px and above) */
+@media (min-width: 1025px) {
   .section-title {
     font-size: 4rem;
+  }
+
+  .section-container {
+    padding: 100px 5%;
+  }
+}
+
+/* ========== COMPONENT-SPECIFIC RESPONSIVE DESIGN ========== */
+
+/* Navbar Responsiveness */
+@media (max-width: 767px) {
+  /* Mobile menu styling optimizations */
+  [style*="position: 'fixed'"][style*="right: 0"] {
+    width: 100vw !important;
+  }
+
+  nav {
+    padding-left: 3.5% !important;
+    padding-right: 3.5% !important;
+  }
+}
+
+/* Hero Section Responsiveness */
+@media (max-width: 768px) {
+  /* Reduce glowing orbs size for mobile */
+  [style*="width: '600px'"],
+  [style*="width: '500px'"],
+  [style*="width: '400px'"] {
+    display: none !important;
+  }
+
+  /* Add smaller background elements for mobile */
+  #home::before {
+    width: 300px !important;
+    height: 300px !important;
+    filter: blur(60px) !important;
+  }
+}
+
+/* Experience Timeline Responsiveness */
+@media (max-width: 768px) {
+  /* Timeline adjustments for mobile */
+  [style*="position: 'absolute'"][style*="left: '24px'"] {
+    left: 16px !important;
+    width: 2px !important;
+  }
+
+  [style*="paddingLeft: '80px'"] {
+    padding-left: 65px !important;
+  }
+
+  [style*="left: '0px'"][style*="width: '50px'"] {
+    width: 42px !important;
+    height: 42px !important;
+    left: -4px !important;
+  }
+
+  [style*="fontSize: '1.5rem'"][style*="boxShadow"] {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Contact Section Responsiveness */
+@media (max-width: 768px) {
+  [style*="display: 'grid'"][style*="gap: '4rem'"] {
+    gap: 2.5rem !important;
+  }
+
+  [style*="gap: '1.8rem'"] {
+    gap: 1.3rem !important;
+  }
+
+  [style*="gap: '1.3rem'"] {
+    gap: 0.8rem !important;
+  }
+}
+
+/* Skills Section Responsiveness */
+@media (max-width: 768px) {
+  [style*="display: 'flex'"][style*="gap: '1rem'"] {
+    flex-wrap: wrap;
+    gap: 0.7rem !important;
+  }
+
+  [style*="padding: '0.7rem 1.2rem'"] {
+    padding: 0.5rem 0.9rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Projects Grid Responsiveness */
+@media (max-width: 640px) {
+  [style*="gridTemplateColumns: 'repeat(auto-fit'"] {
+    grid-auto-columns: 1fr !important;
+  }
+
+  [style*="gap: '2rem'"] {
+    gap: 1.5rem !important;
+  }
+}
+
+/* Social Icons Responsiveness */
+@media (max-width: 480px) {
+  [style*="width: '50px'"][style*="height: '50px'"],
+  [style*="width: '52px'"][style*="height: '52px'"] {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.1rem !important;
+  }
+
+  [style*="gap: '1.2rem'"] {
+    gap: 0.8rem !important;
+  }
+}
+
+/* Ensure touch-friendly sizes for buttons */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  button, [role="button"] {
+    min-height: 44px;
+  }
+}
+
+/* Optimized animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 768px) {
+  body {
+    line-height: 1.7;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
   }
 }
