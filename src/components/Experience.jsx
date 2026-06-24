@@ -6,10 +6,10 @@ const Experience = () => {
   const experiences = [
     {
       type: 'internship',
-      title: 'IT Intern',
+      title: 'Software Engineering Intern',
       company: 'EDCS (Education Co-operative Society)',
-      duration: 'Currently completing 6-month internship',
-      description: 'Gained hands-on experience in software development, quality assurance, troubleshooting, documentation, and overall IT-related operations. Contributed to real-world IT tasks while improving practical knowledge in system development, testing, and technical support.',
+      duration: 'January 2026 – Present',
+      description: 'Independently developed an internal Complaint Management System using Spring Boot, React.js, and MySQL. Involved in complete SDLC including requirement analysis, development, deployment, and maintenance. Reviewed ERP documentation, prepared UAT test cases, and developed RESTful APIs for business processes.',
       icon: <FaBriefcase />,
     },
     {

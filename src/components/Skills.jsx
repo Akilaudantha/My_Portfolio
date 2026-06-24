@@ -10,32 +10,32 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Programming Languages',
-      skills: ['Java', 'C', 'SQL', 'Dart'],
+      skills: ['Java', 'C++', 'C', 'SQL', 'JavaScript', 'Dart'],
       color: 'var(--accent-primary)'
     },
     {
-      title: 'Web Development',
-      skills: ['HTML', 'CSS', 'JavaScript', 'PHP', 'JSP', 'Servlets'],
+      title: 'Backend Technologies',
+      skills: ['Spring Boot', 'JSP', 'Servlets', 'REST APIs', 'PHP'],
       color: 'var(--accent-secondary)'
     },
     {
-      title: 'Database Technologies',
-      skills: ['MySQL', 'Firebase'],
+      title: 'Frontend & UI',
+      skills: ['React', 'HTML', 'CSS', 'JavaScript', 'Figma', 'Flutter'],
       color: '#00d4ff'
     },
     {
-      title: 'UI/UX Design',
-      skills: ['Figma'],
+      title: 'Database Technologies',
+      skills: ['MySQL', 'Firebase', 'Firestore', 'SQL Server'],
       color: '#7f39fb'
     },
     {
-      title: 'Core Strengths',
-      skills: ['Java web development', 'Mathematical Reasoning', 'Algorithms', 'Data Structures'],
+      title: 'Core Competencies',
+      skills: ['Full-stack Development', 'Algorithms', 'Data Structures', 'OOP', 'System Analysis', 'Software Testing'],
       color: '#ff006e'
     },
     {
       title: 'Soft Skills',
-      skills: ['Teaching', 'Leadership', 'Critical Thinking', 'Time Management', 'Team Collaboration', 'Project Management'],
+      skills: ['Teaching & Content Creation', 'Leadership', 'Critical Thinking', 'Team Collaboration', 'Project Management', 'Documentation'],
       color: '#00d4ff'
     }
   ];

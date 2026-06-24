@@ -31,10 +31,10 @@ const About = () => {
         >
           <h3 style={{ fontSize: '1.6rem', marginBottom: '1.3rem', color: 'var(--accent-primary)', fontWeight: '800', letterSpacing: '-0.5px' }}>Profile Summary</h3>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '1.2rem', lineHeight: '1.8', fontSize: '1.05rem' }}>
-            Motivated Software Engineering undergraduate currently in the 4th year, 2nd semester, working as an IT Intern at EDCS (Education Co-operative Society).
+            Motivated BSc (Hons) Software Engineering undergraduate with hands-on experience in full-stack development, software testing, and IT operations. Currently in 4th year, 2nd semester (GPA: 3.60).
           </p>
           <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.05rem' }}>
-            Currently completing a 6-month internship, with 4 months already completed, gaining practical experience in software development, QA, and overall IT operations.
+            Working as a Software Engineering Intern at EDCS since January 2026, gaining practical experience in requirement analysis, system development, QA, and SDLC. Passionate about building solutions and teaching others through my YouTube channel.
           </p>
           
           <h4 style={{ marginTop: '2rem', marginBottom: '0.8rem', color: 'var(--accent-primary)', fontSize: '1.1rem', fontWeight: '700' }}>Languages</h4>

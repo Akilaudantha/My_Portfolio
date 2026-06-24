@@ -26,9 +26,9 @@ const Projects = () => {
       icon: <FaGithub />
     },
     {
-      title: 'ReadLK – Accessible Reading App',
-      description: 'A mobile-friendly reading platform designed to improve content accessibility for users with visual and cognitive impairments. Focused on inclusive typography and user-centric design.',
-      tech: ['Figma'],
+      title: 'ReadkX – Accessible Reading App',
+      description: 'Developed as part of a UI/UX Design project, a mobile-friendly reading platform designed to improve content accessibility for users with visual and cognitive impairments. Focused on inclusive typography, contrast, and user-centric design principles.',
+      tech: ['Dart', 'Flutter', 'Figma'],
       link: '#',
       icon: <FaFigma />
     },
