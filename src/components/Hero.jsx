@@ -121,71 +121,80 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 1 }}
-          style={{ display: 'flex', gap: 'clamp(1rem, 4vw, 2rem)', fontSize: 'clamp(1.5rem, 5vw, 1.8rem)', justifyContent: 'center', flexWrap: 'wrap' }}
+          style={{ display: 'flex', gap: 'clamp(1.5rem, 5vw, 2.5rem)', fontSize: 'clamp(1.5rem, 5vw, 1.8rem)', justifyContent: 'center', flexWrap: 'wrap' }}
         >
-          <a href="https://github.com" target="_blank" rel="noreferrer" style={{ 
-            color: 'var(--text-secondary)', 
+          <a href="https://github.com/Akilaudantha" target="_blank" rel="noreferrer" style={{ 
+            color: 'var(--accent-primary)', 
             transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
-            padding: '0.8rem',
+            width: '70px',
+            height: '70px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             borderRadius: '50%',
-            background: 'rgba(0, 212, 255, 0.05)',
-            border: '2px solid transparent'
+            background: 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.4), rgba(0, 212, 255, 0.15))',
+            border: '2px solid rgba(0, 212, 255, 0.4)',
+            boxShadow: '0 0 30px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.1)'
           }} 
           onMouseOver={e => {
-            e.currentTarget.style.color = 'var(--accent-primary)';
-            e.currentTarget.style.border = '2px solid var(--accent-primary)';
-            e.currentTarget.style.background = 'rgba(0, 212, 255, 0.15)';
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)';
+            e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.6), rgba(0, 212, 255, 0.25))';
+            e.currentTarget.style.transform = 'translateY(-8px) scale(1.1)';
+            e.currentTarget.style.boxShadow = '0 0 50px rgba(0, 212, 255, 0.5), inset 0 0 20px rgba(0, 212, 255, 0.2)';
           }} 
           onMouseOut={e => {
-            e.currentTarget.style.color = 'var(--text-secondary)';
-            e.currentTarget.style.border = '2px solid transparent';
-            e.currentTarget.style.background = 'rgba(0, 212, 255, 0.05)';
-            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.4), rgba(0, 212, 255, 0.15))';
+            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+            e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.1)';
           }}>
             <FaGithub />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ 
-            color: 'var(--text-secondary)', 
+          <a href="https://www.linkedin.com/in/akila-perera-43a830245" target="_blank" rel="noreferrer" style={{ 
+            color: 'var(--accent-secondary)', 
             transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
-            padding: '0.8rem',
+            width: '70px',
+            height: '70px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             borderRadius: '50%',
-            background: 'rgba(127, 57, 251, 0.05)',
-            border: '2px solid transparent'
+            background: 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.4), rgba(127, 57, 251, 0.15))',
+            border: '2px solid rgba(127, 57, 251, 0.4)',
+            boxShadow: '0 0 30px rgba(127, 57, 251, 0.25), inset 0 0 20px rgba(127, 57, 251, 0.1)'
           }} 
           onMouseOver={e => {
-            e.currentTarget.style.color = 'var(--accent-secondary)';
-            e.currentTarget.style.border = '2px solid var(--accent-secondary)';
-            e.currentTarget.style.background = 'rgba(127, 57, 251, 0.15)';
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(127, 57, 251, 0.3)';
+            e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.6), rgba(127, 57, 251, 0.25))';
+            e.currentTarget.style.transform = 'translateY(-8px) scale(1.1)';
+            e.currentTarget.style.boxShadow = '0 0 50px rgba(127, 57, 251, 0.5), inset 0 0 20px rgba(127, 57, 251, 0.2)';
           }} 
           onMouseOut={e => {
-            e.currentTarget.style.color = 'var(--text-secondary)';
-            e.currentTarget.style.border = '2px solid transparent';
-            e.currentTarget.style.background = 'rgba(127, 57, 251, 0.05)';
-            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.4), rgba(127, 57, 251, 0.15))';
+            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+            e.currentTarget.style.boxShadow = '0 0 30px rgba(127, 57, 251, 0.25), inset 0 0 20px rgba(127, 57, 251, 0.1)';
           }}>
             <FaLinkedin />
           </a>
           <a href="mailto:Akilaudantha09@gmail.com" style={{ 
-            color: 'var(--text-secondary)', 
+            color: 'var(--accent-tertiary)', 
             transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
-            padding: '0.8rem',
+            width: '70px',
+            height: '70px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             borderRadius: '50%',
-            background: 'rgba(255, 0, 110, 0.05)',
-            border: '2px solid transparent'
+            background: 'radial-gradient(circle at 30% 30%, rgba(255, 0, 110, 0.4), rgba(255, 0, 110, 0.15))',
+            border: '2px solid rgba(255, 0, 110, 0.4)',
+            boxShadow: '0 0 30px rgba(255, 0, 110, 0.25), inset 0 0 20px rgba(255, 0, 110, 0.1)'
           }} 
           onMouseOver={e => {
-            e.currentTarget.style.color = 'var(--accent-tertiary)';
-            e.currentTarget.style.border = '2px solid var(--accent-tertiary)';
-            e.currentTarget.style.background = 'rgba(255, 0, 110, 0.15)';
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(255, 0, 110, 0.3)';
+            e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(255, 0, 110, 0.6), rgba(255, 0, 110, 0.25))';
+            e.currentTarget.style.transform = 'translateY(-8px) scale(1.1)';
+            e.currentTarget.style.boxShadow = '0 0 50px rgba(255, 0, 110, 0.5), inset 0 0 20px rgba(255, 0, 110, 0.2)';
           }} 
           onMouseOut={e => {
-            e.currentTarget.style.color = 'var(--text-secondary)';
-            e.currentTarget.style.border = '2px solid transparent';
-            e.currentTarget.style.background = 'rgba(255, 0, 110, 0.05)';
-            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(255, 0, 110, 0.4), rgba(255, 0, 110, 0.15))';
+            e.currentTarget.style.transform = 'translateY(0) scale(1)';
+            e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 0, 110, 0.25), inset 0 0 20px rgba(255, 0, 110, 0.1)';
           }}>
             <FaEnvelope />
           </a>

@@ -54,16 +54,16 @@ const Videos = () => {
         My <span className="gradient-text">YouTube</span> Videos
       </motion.h2>
 
-      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto 1rem auto' }}>
-          Check out my latest tutorials and coding guides on my channel <strong>Coding Journey with Akila</strong>.
+      <div style={{ textAlign: 'center', marginBottom: '3rem', padding: '0 clamp(1rem, 5vw, 2rem)' }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.95rem, 4vw, 1.1rem)', maxWidth: 'clamp(280px, 90vw, 700px)', margin: '0 auto 1rem auto', lineHeight: '1.6' }}>
+          Check out my latest tutorials and coding guides on my channel <strong style={{ whiteSpace: 'nowrap' }}>Coding Journey with Akila</strong>.
         </p>
         <a
           href="https://youtube.com/@cjwakila?si=p5ZhhhscvpFTOt80"
           target="_blank"
           rel="noreferrer"
           className="btn btn-outline"
-          style={{ display: 'inline-flex', gap: '0.5rem', borderColor: '#ff0000', color: '#ff0000' }}
+          style={{ display: 'inline-flex', gap: '0.5rem', borderColor: '#ff0000', color: '#ff0000', padding: 'clamp(0.7rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem)' }}
         >
           <FaYoutube size={20} /> Subscribe to Channel
         </a>
@@ -74,7 +74,7 @@ const Videos = () => {
           position: 'relative',
           maxWidth: '1600px',
           margin: '0 auto',
-          padding: '0 40px' // Space for arrows
+          padding: '0 clamp(20px, 5vw, 40px)' // Space for arrows, responsive
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -90,15 +90,16 @@ const Videos = () => {
             background: 'var(--glass-bg)',
             border: '1px solid var(--glass-border)',
             color: 'white',
-            width: '40px',
-            height: '40px',
+            width: 'clamp(32px, 8vw, 40px)',
+            height: 'clamp(32px, 8vw, 40px)',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
             zIndex: 10,
-            transition: 'all 0.3s'
+            transition: 'all 0.3s',
+            fontSize: 'clamp(14px, 4vw, 18px)'
           }}
           onMouseOver={e => e.currentTarget.style.background = 'var(--accent-primary)'}
           onMouseOut={e => e.currentTarget.style.background = 'var(--glass-bg)'}
@@ -123,7 +124,7 @@ const Videos = () => {
                   key={index}
                   style={{
                     width: `${100 / videoLinks.length}%`,
-                    padding: '25px'
+                    padding: 'clamp(10px, 3vw, 25px)'
                   }}
                 >
                   <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
@@ -161,15 +162,16 @@ const Videos = () => {
             background: 'var(--glass-bg)',
             border: '1px solid var(--glass-border)',
             color: 'white',
-            width: '40px',
-            height: '40px',
+            width: 'clamp(32px, 8vw, 40px)',
+            height: 'clamp(32px, 8vw, 40px)',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
             zIndex: 10,
-            transition: 'all 0.3s'
+            transition: 'all 0.3s',
+            fontSize: 'clamp(14px, 4vw, 18px)'
           }}
           onMouseOver={e => e.currentTarget.style.background = 'var(--accent-primary)'}
           onMouseOut={e => e.currentTarget.style.background = 'var(--glass-bg)'}

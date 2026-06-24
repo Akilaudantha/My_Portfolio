@@ -17,8 +17,8 @@ const Contact = () => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '4rem',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(300px, 80vw, 320px), 1fr))',
+        gap: 'clamp(2rem, 4vw, 4rem)',
         marginTop: '2rem',
         marginBottom: '4rem'
       }}>
@@ -36,7 +36,7 @@ const Contact = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.3rem' }}>
-              <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(0, 212, 255, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', fontSize: '1.4rem', border: '2px solid rgba(0, 212, 255, 0.2)', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = 'none'; }}>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.35), rgba(0, 212, 255, 0.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', fontSize: '1.5rem', border: '2px solid rgba(0, 212, 255, 0.3)', boxShadow: '0 0 25px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.08)', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 40px rgba(0, 212, 255, 0.35), inset 0 0 15px rgba(0, 212, 255, 0.15)'; e.currentTarget.style.transform = 'scale(1.05)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.08)'; e.currentTarget.style.transform = 'scale(1)'; }}>
                 <FaPhoneAlt />
               </div>
               <div>
@@ -46,7 +46,7 @@ const Contact = () => {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.3rem' }}>
-              <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(127, 57, 251, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-secondary)', fontSize: '1.4rem', border: '2px solid rgba(127, 57, 251, 0.2)', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 20px rgba(127, 57, 251, 0.3)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = 'none'; }}>
+              <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.35), rgba(127, 57, 251, 0.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-secondary)', fontSize: '1.5rem', border: '2px solid rgba(127, 57, 251, 0.3)', boxShadow: '0 0 25px rgba(127, 57, 251, 0.2), inset 0 0 15px rgba(127, 57, 251, 0.08)', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 40px rgba(127, 57, 251, 0.35), inset 0 0 15px rgba(127, 57, 251, 0.15)'; e.currentTarget.style.transform = 'scale(1.05)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = '0 0 25px rgba(127, 57, 251, 0.2), inset 0 0 15px rgba(127, 57, 251, 0.08)'; e.currentTarget.style.transform = 'scale(1)'; }}>
                 <FaEnvelope />
               </div>
               <div>
@@ -56,12 +56,15 @@ const Contact = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '1.2rem', marginTop: '3rem' }}>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(0, 212, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', fontSize: '1.3rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', border: '2px solid rgba(0, 212, 255, 0.2)' }} onMouseOver={e => { e.currentTarget.style.background = 'rgba(0, 212, 255, 0.2)'; e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)'; }} onMouseOut={e => { e.currentTarget.style.background = 'rgba(0, 212, 255, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
+          <div style={{ display: 'flex', gap: '2rem', marginTop: '3rem', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+            <a href="https://www.linkedin.com/in/akila-perera-43a830245" target="_blank" rel="noreferrer" style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.4), rgba(0, 212, 255, 0.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', fontSize: '1.8rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', border: '2px solid rgba(0, 212, 255, 0.4)', boxShadow: '0 0 30px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.1)' }} onMouseOver={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.6), rgba(0, 212, 255, 0.25))'; e.currentTarget.style.transform = 'translateY(-8px) scale(1.1)'; e.currentTarget.style.boxShadow = '0 0 50px rgba(0, 212, 255, 0.5), inset 0 0 20px rgba(0, 212, 255, 0.2)'; }} onMouseOut={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.4), rgba(0, 212, 255, 0.15))'; e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.1)'; }}>
               <FaLinkedin />
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(127, 57, 251, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-secondary)', fontSize: '1.3rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', border: '2px solid rgba(127, 57, 251, 0.2)' }} onMouseOver={e => { e.currentTarget.style.background = 'rgba(127, 57, 251, 0.2)'; e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 0 20px rgba(127, 57, 251, 0.3)'; }} onMouseOut={e => { e.currentTarget.style.background = 'rgba(127, 57, 251, 0.1)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
+            <a href="https://github.com/Akilaudantha" target="_blank" rel="noreferrer" style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.4), rgba(127, 57, 251, 0.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-secondary)', fontSize: '1.8rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', border: '2px solid rgba(127, 57, 251, 0.4)', boxShadow: '0 0 30px rgba(127, 57, 251, 0.25), inset 0 0 20px rgba(127, 57, 251, 0.1)' }} onMouseOver={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.6), rgba(127, 57, 251, 0.25))'; e.currentTarget.style.transform = 'translateY(-8px) scale(1.1)'; e.currentTarget.style.boxShadow = '0 0 50px rgba(127, 57, 251, 0.5), inset 0 0 20px rgba(127, 57, 251, 0.2)'; }} onMouseOut={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.4), rgba(127, 57, 251, 0.15))'; e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(127, 57, 251, 0.25), inset 0 0 20px rgba(127, 57, 251, 0.1)'; }}>
               <FaGithub />
+            </a>
+            <a href="mailto:Akilaudantha09@gmail.com" style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(255, 0, 110, 0.4), rgba(255, 0, 110, 0.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-tertiary)', fontSize: '1.8rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', border: '2px solid rgba(255, 0, 110, 0.4)', boxShadow: '0 0 30px rgba(255, 0, 110, 0.25), inset 0 0 20px rgba(255, 0, 110, 0.1)' }} onMouseOver={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(255, 0, 110, 0.6), rgba(255, 0, 110, 0.25))'; e.currentTarget.style.transform = 'translateY(-8px) scale(1.1)'; e.currentTarget.style.boxShadow = '0 0 50px rgba(255, 0, 110, 0.5), inset 0 0 20px rgba(255, 0, 110, 0.2)'; }} onMouseOut={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(255, 0, 110, 0.4), rgba(255, 0, 110, 0.15))'; e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(255, 0, 110, 0.25), inset 0 0 20px rgba(255, 0, 110, 0.1)'; }}>
+              <FaEnvelope />
             </a>
           </div>
         </motion.div>
@@ -82,7 +85,7 @@ const Contact = () => {
           fontSize: '0.9rem'
         }}
       >
-        <p>© {new Date().getFullYear()} Akila Udantha. Built with React & Framer Motion.</p>
+        <p>© {new Date().getFullYear()} Akila Udantha. All rights reserved.</p>
       </motion.footer>
     </section>
   );
