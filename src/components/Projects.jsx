@@ -62,8 +62,8 @@ const Projects = () => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-        gap: '2rem',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(300px, 80vw, 320px), 1fr))',
+        gap: 'clamp(1.2rem, 3vw, 2rem)',
         marginTop: '2rem'
       }}>
         {projects.map((project, index) => (

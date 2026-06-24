@@ -74,8 +74,8 @@ const Skills = () => {
         viewport={{ once: true }}
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 80vw, 300px), 1fr))',
+          gap: 'clamp(1.5rem, 4vw, 2rem)',
           marginTop: '2rem'
         }}
       >

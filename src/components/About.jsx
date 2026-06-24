@@ -16,8 +16,8 @@ const About = () => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '3rem',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 80vw, 300px), 1fr))',
+        gap: 'clamp(1.5rem, 4vw, 3rem)',
         marginTop: '2rem'
       }}>
         {/* Profile Summary */}

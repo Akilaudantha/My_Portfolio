@@ -66,31 +66,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* References */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="glass-panel"
-          style={{ padding: '2.5rem' }}
-        >
-          <h3 style={{ fontSize: '1.6rem', marginBottom: '2rem', color: 'var(--text-primary)', fontWeight: '800' }}>References</h3>
-          
-          <div style={{ marginBottom: '2.5rem', paddingBottom: '2rem', borderBottom: '2px solid rgba(0, 212, 255, 0.1)' }}>
-            <h4 style={{ fontSize: '1.2rem', color: 'var(--accent-primary)', marginBottom: '0.5rem', fontWeight: '700' }}>Prof. Chaminda Wijesinghe</h4>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '0.5rem', fontWeight: '500' }}>Head, Department of Computing & Data Science</p>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '0.7rem' }}>NSBM Green University</p>
-            <a href="mailto:chamindaw@nsbm.ac.lk" style={{ color: 'var(--accent-primary)', fontSize: '0.95rem', textDecoration: 'none', fontWeight: '600', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.textDecoration = 'underline'; }} onMouseOut={(e) => { e.currentTarget.style.textDecoration = 'none'; }}>chamindaw@nsbm.ac.lk</a>
-          </div>
-
-          <div>
-            <h4 style={{ fontSize: '1.2rem', color: 'var(--accent-secondary)', marginBottom: '0.5rem', fontWeight: '700' }}>J.P. Dulanjali Wijesekara</h4>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '0.5rem', fontWeight: '500' }}>Lecturer, Department of Computing & Data Science</p>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '0.7rem' }}>NSBM Green University</p>
-            <a href="mailto:dulanjali.w@nsbm.ac.lk" style={{ color: 'var(--accent-secondary)', fontSize: '0.95rem', textDecoration: 'none', fontWeight: '600', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.textDecoration = 'underline'; }} onMouseOut={(e) => { e.currentTarget.style.textDecoration = 'none'; }}>dulanjali.w@nsbm.ac.lk</a>
-          </div>
-        </motion.div>
+        
       </div>
 
       <motion.footer

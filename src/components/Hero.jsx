@@ -80,7 +80,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          style={{ color: 'var(--text-secondary)', fontSize: '1.3rem', marginBottom: '0.5rem', letterSpacing: '3px', fontWeight: '600', textTransform: 'uppercase' }}
+          style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9rem, 3vw, 1.3rem)', marginBottom: '0.5rem', letterSpacing: '3px', fontWeight: '600', textTransform: 'uppercase' }}
         >
           Welcome to my portfolio
         </motion.h2>
@@ -89,7 +89,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          style={{ fontSize: 'clamp(3.5rem, 10vw, 6rem)', marginBottom: '1rem', lineHeight: '1.1', fontWeight: '900', letterSpacing: '-2px' }}
+          style={{ fontSize: 'clamp(2.5rem, 10vw, 6rem)', marginBottom: '1rem', lineHeight: '1.1', fontWeight: '900', letterSpacing: '-2px' }}
         >
           <span className="gradient-text">AKILA</span> <br/> UDANTHA
         </motion.h1>
@@ -98,7 +98,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
-          style={{ fontSize: '1.3rem', fontWeight: '500', color: 'var(--text-secondary)', marginBottom: '2rem', maxWidth: '650px', lineHeight: '1.6' }}
+          style={{ fontSize: 'clamp(1rem, 3.5vw, 1.3rem)', fontWeight: '500', color: 'var(--text-secondary)', marginBottom: '2rem', maxWidth: '650px', lineHeight: '1.6' }}
         >
           Full-Stack Developer & BSc (Hons) Software Engineer
         </motion.h3>
@@ -107,7 +107,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap: 'wrap', justifyContent: 'center' }}
+          style={{ display: 'flex', gap: 'clamp(0.8rem, 3vw, 1.5rem)', marginBottom: '3rem', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '100%' }}
         >
           <Link to="projects" smooth={true} duration={500} className="btn btn-primary">
             View My Work
@@ -121,7 +121,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 1 }}
-          style={{ display: 'flex', gap: '2rem', fontSize: '1.8rem' }}
+          style={{ display: 'flex', gap: 'clamp(1rem, 4vw, 2rem)', fontSize: 'clamp(1.5rem, 5vw, 1.8rem)', justifyContent: 'center', flexWrap: 'wrap' }}
         >
           <a href="https://github.com" target="_blank" rel="noreferrer" style={{ 
             color: 'var(--text-secondary)', 

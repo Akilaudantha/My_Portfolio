@@ -42,11 +42,11 @@ const Experience = () => {
         Experience & <span className="gradient-text">Leadership</span>
       </motion.h2>
 
-      <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', paddingRight: '1rem' }}>
         {/* Vertical Line */}
         <div style={{
           position: 'absolute',
-          left: '24px',
+          left: 'clamp(14px, 3vw, 24px)',
           top: 0,
           bottom: 0,
           width: '3px',
@@ -64,25 +64,25 @@ const Experience = () => {
             transition={{ duration: 0.5, delay: index * 0.2 }}
             style={{
               position: 'relative',
-              paddingLeft: '80px',
-              marginBottom: '3.5rem',
+              paddingLeft: 'clamp(60px, 12vw, 80px)',
+              marginBottom: 'clamp(2rem, 5vw, 3.5rem)',
               zIndex: 1
             }}
           >
             {/* Timeline Dot/Icon */}
             <div style={{
               position: 'absolute',
-              left: '0px',
+              left: 'clamp(-4px, 1vw, 0px)',
               top: '0',
-              width: '50px',
-              height: '50px',
+              width: 'clamp(42px, 10vw, 50px)',
+              height: 'clamp(42px, 10vw, 50px)',
               borderRadius: '50%',
               background: exp.type === 'internship' ? 'var(--accent-primary)' : 'var(--accent-secondary)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'var(--bg-primary)',
-              fontSize: '1.5rem',
+              fontSize: 'clamp(1.1rem, 4vw, 1.5rem)',
               boxShadow: `0 0 30px ${exp.type === 'internship' ? 'rgba(0, 212, 255, 0.6)' : 'rgba(127, 57, 251, 0.6)'}`,
               border: '4px solid var(--bg-primary)',
               fontWeight: '800',
