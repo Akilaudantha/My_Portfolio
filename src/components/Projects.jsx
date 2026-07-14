@@ -26,7 +26,7 @@ const Projects = () => {
       icon: <FaGithub />
     },
     {
-      title: 'ReadkX – Accessible Reading App',
+      title: 'ReadkX - Accessible Reading App',
       description: 'Developed as part of a UI/UX Design project, a mobile-friendly reading platform designed to improve content accessibility for users with visual and cognitive impairments. Focused on inclusive typography, contrast, and user-centric design principles.',
       tech: ['Dart', 'Flutter', 'Figma'],
       link: '#',
@@ -40,7 +40,7 @@ const Projects = () => {
       icon: <FaGithub />
     },
     {
-      title: 'UNIVISION – University Guidance App',
+      title: 'UNIVISION - University Guidance App',
       description: 'Flutter-based mobile app to help students search universities, explore degree programs, and discover career paths based on Z-scores.',
       tech: ['Dart', 'Flutter', 'Firebase', 'Firestore'],
       link: '#',
@@ -60,7 +60,7 @@ const Projects = () => {
         Featured <span className="gradient-text">Projects</span>
       </motion.h2>
 
-      <div style={{
+      <div className="responsive-grid projects-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(300px, 80vw, 320px), 1fr))',
         gap: 'clamp(1.2rem, 3vw, 2rem)',
@@ -74,7 +74,7 @@ const Projects = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -10 }}
-            className="glass-panel"
+            className="glass-panel project-card"
             style={{
               padding: '2rem',
               display: 'flex',
@@ -95,7 +95,7 @@ const Projects = () => {
               background: 'var(--accent-gradient)'
             }} />
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+            <div className="project-card-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <div style={{
                 width: '56px',
                 height: '56px',
@@ -143,7 +143,7 @@ const Projects = () => {
               {project.description}
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.7rem' }}>
+            <div className="tag-row project-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.7rem' }}>
               {project.tech.map((tech, tIndex) => (
                 <span 
                   key={tIndex}

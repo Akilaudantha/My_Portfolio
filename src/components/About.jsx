@@ -14,7 +14,7 @@ const About = () => {
         About <span className="gradient-text">Me</span>
       </motion.h2>
 
-      <div style={{
+      <div className="responsive-grid about-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 80vw, 300px), 1fr))',
         gap: 'clamp(1.5rem, 4vw, 3rem)',
@@ -31,14 +31,14 @@ const About = () => {
         >
           <h3 style={{ fontSize: '1.6rem', marginBottom: '1.3rem', color: 'var(--accent-primary)', fontWeight: '800', letterSpacing: '-0.5px' }}>Profile Summary</h3>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '1.2rem', lineHeight: '1.8', fontSize: '1.05rem' }}>
-            Motivated BSc (Hons) Software Engineering undergraduate with hands-on experience in full-stack development, software testing, and IT operations. Currently in 4th year, 2nd semester (GPA: 3.60).
+            Motivated BSc (Hons) Software Engineering undergraduate with hands-on experience in full-stack development, software testing, and IT operations. Currently in 4th year, 2nd semester (GPA: 3.64).
           </p>
           <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1.05rem' }}>
             Working as a Software Engineering Intern at EDCS since January 2026, gaining practical experience in requirement analysis, system development, QA, and SDLC. Passionate about building solutions and teaching others through my YouTube channel.
           </p>
           
           <h4 style={{ marginTop: '2rem', marginBottom: '0.8rem', color: 'var(--accent-primary)', fontSize: '1.1rem', fontWeight: '700' }}>Languages</h4>
-          <div style={{ display: 'flex', gap: '1rem' }}>
+          <div className="tag-row language-row" style={{ display: 'flex', gap: '1rem' }}>
             <span style={{ background: 'rgba(0, 212, 255, 0.1)', border: '2px solid var(--accent-primary)', color: 'var(--accent-primary)', padding: '0.7rem 1.2rem', borderRadius: '10px', fontSize: '0.95rem', fontWeight: '600', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 212, 255, 0.3)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = 'none'; }}>Sinhala</span>
             <span style={{ background: 'rgba(0, 212, 255, 0.1)', border: '2px solid var(--accent-primary)', color: 'var(--accent-primary)', padding: '0.7rem 1.2rem', borderRadius: '10px', fontSize: '0.95rem', fontWeight: '600', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 212, 255, 0.3)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = 'none'; }}>English</span>
           </div>
@@ -46,6 +46,7 @@ const About = () => {
 
         {/* Education */}
         <motion.div
+          className="education-stack"
           style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -57,7 +58,7 @@ const About = () => {
           <div className="glass-panel" style={{ padding: '2rem', borderLeft: '5px solid var(--accent-primary)', position: 'relative' }}>
             <h4 style={{ fontSize: '1.3rem', marginBottom: '0.7rem', fontWeight: '800', color: 'var(--text-primary)' }}>BSc (Hons) in Software Engineering</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', marginBottom: '0.8rem' }}>National School of Business Management (NSBM), Homagama, Sri Lanka</p>
-            <p style={{ color: 'var(--accent-primary)', fontWeight: 'bold', fontSize: '1.05rem' }}>📚 Currently in 4th Year, 2nd Semester | GPA: 3.64</p>
+            <p style={{ color: 'var(--accent-primary)', fontWeight: 'bold', fontSize: '1.05rem' }}>Currently in 4th Year, 2nd Semester | GPA: 3.64</p>
           </div>
 
           <div className="glass-panel" style={{ padding: '2rem', borderLeft: '5px solid var(--accent-secondary)', position: 'relative' }}>
@@ -68,7 +69,7 @@ const About = () => {
           <div className="glass-panel" style={{ padding: '2rem', borderLeft: '5px solid var(--accent-tertiary)', position: 'relative' }}>
             <h4 style={{ fontSize: '1.3rem', marginBottom: '0.7rem', fontWeight: '800', color: 'var(--text-primary)' }}>G.C.E. Advanced Level (A/L) - 2020</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', marginBottom: '0.7rem' }}>Sri Dharmaloka College, Kelaniya</p>
-            <p style={{ color: 'var(--accent-primary)', fontSize: '1rem', fontWeight: '600' }}>🔬 Stream: Physical Science</p>
+            <p style={{ color: 'var(--accent-primary)', fontSize: '1rem', fontWeight: '600' }}>Stream: Physical Science</p>
           </div>
         </motion.div>
       </div>

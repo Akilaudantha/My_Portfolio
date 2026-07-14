@@ -54,7 +54,7 @@ const Videos = () => {
         My <span className="gradient-text">YouTube</span> Videos
       </motion.h2>
 
-      <div style={{ textAlign: 'center', marginBottom: '3rem', padding: '0 clamp(1rem, 5vw, 2rem)' }}>
+      <div className="videos-intro" style={{ textAlign: 'center', marginBottom: '3rem', padding: '0 clamp(1rem, 5vw, 2rem)' }}>
         <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.95rem, 4vw, 1.1rem)', maxWidth: 'clamp(280px, 90vw, 700px)', margin: '0 auto 1rem auto', lineHeight: '1.6' }}>
           Check out my latest tutorials and coding guides on my channel <strong style={{ whiteSpace: 'nowrap' }}>Coding Journey with Akila</strong>.
         </p>
@@ -70,6 +70,7 @@ const Videos = () => {
       </div>
 
       <div
+        className="video-carousel"
         style={{
           position: 'relative',
           maxWidth: '1600px',
@@ -108,7 +109,7 @@ const Videos = () => {
         </button>
 
         {/* Carousel Viewport */}
-        <div style={{ overflow: 'hidden', borderRadius: '16px' }}>
+        <div className="video-viewport" style={{ overflow: 'hidden', borderRadius: '16px' }}>
           <motion.div
             style={{
               display: 'flex',
@@ -121,13 +122,14 @@ const Videos = () => {
               const videoId = getYouTubeId(link);
               return (
                 <div
+                  className="video-slide"
                   key={index}
                   style={{
                     width: `${100 / videoLinks.length}%`,
                     padding: 'clamp(10px, 3vw, 25px)'
                   }}
                 >
-                  <div className="glass-panel" style={{ padding: '1.5rem', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+                  <div className="glass-panel video-card" style={{ padding: '1.5rem', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
                     <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '8px' }}>
                       {videoId ? (
                         <iframe

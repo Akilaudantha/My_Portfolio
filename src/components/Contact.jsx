@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaPhoneAlt, FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaDownload, FaEnvelope, FaGithub, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -15,7 +15,7 @@ const Contact = () => {
         Get In <span className="gradient-text">Touch</span>
       </motion.h2>
 
-      <div style={{
+      <div className="responsive-grid contact-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(300px, 80vw, 320px), 1fr))',
         gap: 'clamp(2rem, 4vw, 4rem)',
@@ -24,6 +24,7 @@ const Contact = () => {
       }}>
         {/* Contact Info */}
         <motion.div
+          className="contact-content"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -34,8 +35,8 @@ const Contact = () => {
             I'm currently looking for new opportunities and collaborations. Whether you have a question or just want to say hi, I'll try my best to get back to you!
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.3rem' }}>
+          <div className="contact-list" style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
+            <div className="contact-row" style={{ display: 'flex', alignItems: 'center', gap: '1.3rem' }}>
               <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.35), rgba(0, 212, 255, 0.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', fontSize: '1.5rem', border: '2px solid rgba(0, 212, 255, 0.3)', boxShadow: '0 0 25px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.08)', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 40px rgba(0, 212, 255, 0.35), inset 0 0 15px rgba(0, 212, 255, 0.15)'; e.currentTarget.style.transform = 'scale(1.05)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 212, 255, 0.2), inset 0 0 15px rgba(0, 212, 255, 0.08)'; e.currentTarget.style.transform = 'scale(1)'; }}>
                 <FaPhoneAlt />
               </div>
@@ -45,7 +46,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.3rem' }}>
+            <div className="contact-row" style={{ display: 'flex', alignItems: 'center', gap: '1.3rem' }}>
               <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(127, 57, 251, 0.35), rgba(127, 57, 251, 0.12))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-secondary)', fontSize: '1.5rem', border: '2px solid rgba(127, 57, 251, 0.3)', boxShadow: '0 0 25px rgba(127, 57, 251, 0.2), inset 0 0 15px rgba(127, 57, 251, 0.08)', transition: 'all 0.3s ease' }} onMouseOver={(e) => { e.currentTarget.style.boxShadow = '0 0 40px rgba(127, 57, 251, 0.35), inset 0 0 15px rgba(127, 57, 251, 0.15)'; e.currentTarget.style.transform = 'scale(1.05)'; }} onMouseOut={(e) => { e.currentTarget.style.boxShadow = '0 0 25px rgba(127, 57, 251, 0.2), inset 0 0 15px rgba(127, 57, 251, 0.08)'; e.currentTarget.style.transform = 'scale(1)'; }}>
                 <FaEnvelope />
               </div>
@@ -56,7 +57,11 @@ const Contact = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '2rem', marginTop: '3rem', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+          <a className="btn btn-primary" href="/Akila_Perera_CV.pdf" download style={{ marginTop: '2.5rem' }}>
+            Download CV <FaDownload aria-hidden="true" />
+          </a>
+
+          <div className="contact-socials" style={{ display: 'flex', gap: '2rem', marginTop: '3rem', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
             <a href="https://www.linkedin.com/in/akila-perera-43a830245" target="_blank" rel="noreferrer" style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.4), rgba(0, 212, 255, 0.15))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', fontSize: '1.8rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', border: '2px solid rgba(0, 212, 255, 0.4)', boxShadow: '0 0 30px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.1)' }} onMouseOver={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.6), rgba(0, 212, 255, 0.25))'; e.currentTarget.style.transform = 'translateY(-8px) scale(1.1)'; e.currentTarget.style.boxShadow = '0 0 50px rgba(0, 212, 255, 0.5), inset 0 0 20px rgba(0, 212, 255, 0.2)'; }} onMouseOut={e => { e.currentTarget.style.background = 'radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.4), rgba(0, 212, 255, 0.15))'; e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.25), inset 0 0 20px rgba(0, 212, 255, 0.1)'; }}>
               <FaLinkedin />
             </a>
@@ -85,7 +90,7 @@ const Contact = () => {
           fontSize: '0.9rem'
         }}
       >
-        <p>© {new Date().getFullYear()} Akila Udantha. All rights reserved.</p>
+        <p>(c) {new Date().getFullYear()} Akila Udantha. All rights reserved.</p>
       </motion.footer>
     </section>
   );

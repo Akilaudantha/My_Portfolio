@@ -8,13 +8,13 @@ const Experience = () => {
       type: 'internship',
       title: 'Software Engineering Intern',
       company: 'EDCS (Education Co-operative Society)',
-      duration: 'January 2026 – Present',
+      duration: 'January 2026 - Present',
       description: 'Independently developed an internal Complaint Management System using Spring Boot, React.js, and MySQL. Involved in complete SDLC including requirement analysis, development, deployment, and maintenance. Reviewed ERP documentation, prepared UAT test cases, and developed RESTful APIs for business processes.',
       icon: <FaBriefcase />,
     },
     {
       type: 'internship',
-      title: 'IT Trainee – Landscape Management Division',
+      title: 'IT Trainee - Landscape Management Division',
       company: 'University of Sri Jayewardenepura',
       duration: 'Completed 6-month program',
       description: 'Completed a practical IT related training program in the Landscape Management Division, supporting internal systems and software applications.',
@@ -42,9 +42,9 @@ const Experience = () => {
         Experience & <span className="gradient-text">Leadership</span>
       </motion.h2>
 
-      <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', paddingRight: '1rem' }}>
+      <div className="timeline" style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', paddingRight: '1rem' }}>
         {/* Vertical Line */}
-        <div style={{
+        <div className="timeline-line" style={{
           position: 'absolute',
           left: 'clamp(14px, 3vw, 24px)',
           top: 0,
@@ -57,6 +57,7 @@ const Experience = () => {
 
         {experiences.map((exp, index) => (
           <motion.div
+            className="timeline-item"
             key={index}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -70,7 +71,7 @@ const Experience = () => {
             }}
           >
             {/* Timeline Dot/Icon */}
-            <div style={{
+            <div className="timeline-dot" style={{
               position: 'absolute',
               left: 'clamp(-4px, 1vw, 0px)',
               top: '0',
@@ -91,10 +92,10 @@ const Experience = () => {
               {exp.icon}
             </div>
 
-            <div className="glass-panel" style={{ padding: '2.2rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)' }} onMouseOver={e => { e.currentTarget.style.transform = 'translateX(10px)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.2)'; }} onMouseOut={e => { e.currentTarget.style.transform = 'translateX(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
+            <div className="glass-panel timeline-card" style={{ padding: '2.2rem', transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)' }} onMouseOver={e => { e.currentTarget.style.transform = 'translateX(10px)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.2)'; }} onMouseOut={e => { e.currentTarget.style.transform = 'translateX(0)'; e.currentTarget.style.boxShadow = 'none'; }}>
               <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '0.5rem', letterSpacing: '-0.5px' }}>{exp.title}</h3>
               <h4 style={{ fontSize: '1.15rem', color: exp.type === 'internship' ? 'var(--accent-primary)' : 'var(--accent-secondary)', marginBottom: '0.7rem', fontWeight: '700' }}>{exp.company}</h4>
-              <p style={{ fontSize: '0.95rem', color: 'var(--accent-primary)', marginBottom: '1.2rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>⏰ {exp.duration}</p>
+              <p style={{ fontSize: '0.95rem', color: 'var(--accent-primary)', marginBottom: '1.2rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{exp.duration}</p>
               <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '1rem' }}>{exp.description}</p>
             </div>
           </motion.div>

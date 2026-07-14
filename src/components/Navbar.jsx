@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { FaDownload } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,6 +28,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
+      className="nav-bar"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -47,7 +49,7 @@ const Navbar = () => {
         boxShadow: isScrolled ? '0 10px 30px rgba(0, 212, 255, 0.05)' : 'none'
       }}
     >
-      <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: '800', letterSpacing: '-1px' }}>
+      <div className="nav-brand" style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: '800', letterSpacing: '-1px' }}>
         <span className="gradient-text">AKILA</span>
       </div>
 
@@ -92,17 +94,30 @@ const Navbar = () => {
         ))}
       </ul>
 
+      <a className="nav-cv" href="/Akila_Perera_CV.pdf" download>
+        CV <FaDownload aria-hidden="true" />
+      </a>
+
       {/* Mobile Menu Icon */}
       <div 
         className="mobile-icon" 
+        role="button"
+        aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+        tabIndex={0}
         style={{ cursor: 'pointer', zIndex: 101 }}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            setMobileMenuOpen(!mobileMenuOpen);
+          }
+        }}
       >
         {mobileMenuOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
       </div>
 
       {/* Mobile Menu */}
       <motion.div
+        className="mobile-menu-panel"
         initial={false}
         animate={mobileMenuOpen ? { x: 0 } : { x: '100%' }}
         transition={{ type: 'tween', duration: 0.3 }}
@@ -138,14 +153,18 @@ const Navbar = () => {
             {link.name}
           </Link>
         ))}
+        <a className="btn btn-primary" href="/Akila_Perera_CV.pdf" download onClick={() => setMobileMenuOpen(false)}>
+          Download CV
+        </a>
       </motion.div>
 
       {/* Hacky way to inject basic media queries since we are inline-styling heavily for speed */}
       <style>{`
         .desktop-nav { display: none; }
-        @media (min-width: 768px) {
+        @media (min-width: 1100px) {
           .desktop-nav { display: flex !important; }
           .mobile-icon { display: none !important; }
+          .nav-cv { display: inline-flex !important; }
         }
       `}</style>
     </motion.nav>

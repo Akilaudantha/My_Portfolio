@@ -68,6 +68,7 @@ const Skills = () => {
       </motion.h2>
 
       <motion.div 
+        className="responsive-grid skills-grid"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -83,7 +84,7 @@ const Skills = () => {
           <motion.div 
             key={index} 
             variants={itemVariants}
-            className="glass-panel"
+            className="glass-panel skill-card"
             style={{
               padding: '2rem',
               position: 'relative',
@@ -108,10 +109,11 @@ const Skills = () => {
               {category.title}
             </h3>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+            <div className="tag-row skills-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
               {category.skills.map((skill, sIndex) => (
                 <span 
                   key={sIndex}
+                  className="skill-tag"
                   style={{
                     background: `rgba(${hexToRgb(category.color)}, 0.1)`,
                     border: `2px solid ${category.color}`,
