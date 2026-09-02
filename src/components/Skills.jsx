@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { FaDatabase, FaLayerGroup, FaServer, FaUsers } from 'react-icons/fa';
 
 const groups = [
-  { number: '01', title: 'Frontend', icon: FaLayerGroup, skills: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Flutter', 'Figma'] },
+  { number: '01', title: 'Frontend', icon: FaLayerGroup, skills: ['React', 'TypeScript', 'JavaScript', 'Material UI', 'HTML5', 'CSS3', 'Flutter', 'Figma'] },
   { number: '02', title: 'Backend', icon: FaServer, skills: ['Spring Boot', 'Java', 'REST APIs', 'JSP', 'Servlets', 'PHP'] },
-  { number: '03', title: 'Data', icon: FaDatabase, skills: ['MySQL', 'SQL Server', 'Firebase', 'Firestore', 'SQL'] },
-  { number: '04', title: 'Practice', icon: FaUsers, skills: ['System Analysis', 'Software Testing', 'OOP', 'Data Structures', 'Team Leadership', 'Documentation'] },
+  { number: '03', title: 'Data', icon: FaDatabase, skills: ['MySQL', 'PostgreSQL', 'Firebase', 'Firestore', 'SQL'] },
+  { number: '04', title: 'Practice', icon: FaUsers, skills: ['Git & GitLab', 'Postman', 'System Analysis', 'Software Testing', 'UAT', 'Debugging'] },
 ];
 
 const Skills = () => (
@@ -19,7 +19,7 @@ const Skills = () => (
         </motion.article>
       ); })}
     </div>
-    <div className="marquee" aria-hidden="true"><div>JAVA · REACT · SPRING BOOT · FLUTTER · MYSQL · FIGMA · REST APIs · JAVA · REACT · SPRING BOOT · FLUTTER · MYSQL · FIGMA · REST APIs ·</div></div>
+    <div className="marquee" aria-hidden="true"><div>REACT · TYPESCRIPT · MATERIAL UI · SPRING BOOT · POSTGRESQL · REST APIs · REACT · TYPESCRIPT · MATERIAL UI · SPRING BOOT · POSTGRESQL · REST APIs ·</div></div>
   </section>
 );
 

@@ -4,6 +4,13 @@ import { FaChevronLeft, FaChevronRight, FaFigma, FaGithub } from 'react-icons/fa
 
 const projects = [
   {
+    title: 'School Timetable Management System',
+    category: 'Final-year project',
+    description: 'A school timetable platform supporting administration, teacher management, and timetable operations through a React frontend and REST API backend.',
+    tech: ['React', 'Java', 'Spring Boot', 'REST APIs'],
+    icon: FaGithub,
+  },
+  {
     title: 'Student Management System',
     category: 'Web application',
     description: 'A web application for managing student registration, marks, attendance, and academic records in one place.',
@@ -18,14 +25,7 @@ const projects = [
     icon: FaGithub,
   },
   {
-    title: 'Class Attendance System',
-    category: 'Education platform',
-    description: 'A streamlined system that helps teachers record classroom attendance and monitor student participation.',
-    tech: ['Java', 'JSP', 'Servlets', 'MySQL'],
-    icon: FaGithub,
-  },
-  {
-    title: 'ReadkX',
+    title: 'ReadLK',
     category: 'Accessible reading app',
     description: 'A mobile-first reading experience for people with visual and cognitive impairments, guided by inclusive typography, contrast, and UX.',
     tech: ['Dart', 'Flutter', 'Figma'],
