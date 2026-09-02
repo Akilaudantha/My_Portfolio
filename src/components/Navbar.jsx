@@ -1,173 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
+import { FaArrowDown } from 'react-icons/fa';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { FaDownload } from 'react-icons/fa';
+
+const links = ['About', 'Skills', 'Experience', 'Projects', 'Videos', 'Contact'];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', to: 'home' },
-    { name: 'About', to: 'about' },
-    { name: 'Skills', to: 'skills' },
-    { name: 'Experience', to: 'experience' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Videos', to: 'videos' },
-    { name: 'Contact', to: 'contact' },
-  ];
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
 
   return (
-    <motion.nav
-      className="nav-bar"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        padding: isScrolled ? '1rem 5%' : '1.5rem 5%',
-        background: isScrolled ? 'linear-gradient(135deg, rgba(15, 15, 30, 0.9), rgba(26, 26, 46, 0.85))' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(0, 212, 255, 0.1)' : 'none',
-        transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        boxShadow: isScrolled ? '0 10px 30px rgba(0, 212, 255, 0.05)' : 'none'
-      }}
-    >
-      <div className="nav-brand" style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: '800', letterSpacing: '-1px' }}>
-        <span className="gradient-text">AKILA</span>
-      </div>
+    <motion.header className={`nav-wrap ${scrolled ? 'is-scrolled' : ''}`} initial={{ y: -90 }} animate={{ y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
+      <nav className="nav-bar" aria-label="Main navigation">
+        <Link className="brand" to="home" smooth duration={500} aria-label="Go to home">
+          <span className="brand-mark">AU</span>
+          <span className="brand-copy">Akila Udantha<small>Software Engineer</small></span>
+        </Link>
 
-      {/* Desktop Menu */}
-      <ul style={{
-        display: 'none',
-        listStyle: 'none',
-        gap: '2rem',
-        '@media (min-width: 768px)': {
-          display: 'flex', // Fallback for vanilla css inline styles without media query support
-        }
-      }} className="desktop-nav">
-        {navLinks.map((link) => (
-          <li key={link.name}>
-            <Link
-              to={link.to}
-              smooth={true}
-              duration={500}
-              spy={true}
-              activeClass="active"
-              style={{
-                cursor: 'pointer',
-                fontSize: '0.95rem',
-                fontWeight: '600',
-                color: 'var(--text-primary)',
-                transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                position: 'relative',
-                padding: '0.5rem 0'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.color = 'var(--accent-primary)';
-                e.target.style.textShadow = '0 0 15px rgba(0, 212, 255, 0.4)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.color = 'var(--text-primary)';
-                e.target.style.textShadow = 'none';
-              }}
-            >
-              {link.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+        <div className="desktop-nav">
+          {links.map((label) => (
+            <Link key={label} to={label.toLowerCase()} smooth duration={500} spy activeClass="active">{label}</Link>
+          ))}
+        </div>
 
-      <a className="nav-cv" href="/Akila_Perera_CV.pdf" download>
-        CV <FaDownload aria-hidden="true" />
-      </a>
+        <a className="nav-resume" href="/Akila_Perera_CV.pdf" download>Résumé <FaArrowDown aria-hidden="true" /></a>
+        <button className="menu-button" onClick={() => setOpen((value) => !value)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
+          {open ? <HiX /> : <HiMenuAlt3 />}
+        </button>
+      </nav>
 
-      {/* Mobile Menu Icon */}
-      <div 
-        className="mobile-icon" 
-        role="button"
-        aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-        tabIndex={0}
-        style={{ cursor: 'pointer', zIndex: 101 }}
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        onKeyDown={(event) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            setMobileMenuOpen(!mobileMenuOpen);
-          }
-        }}
-      >
-        {mobileMenuOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
-      </div>
-
-      {/* Mobile Menu */}
-      <motion.div
-        className="mobile-menu-panel"
-        initial={false}
-        animate={mobileMenuOpen ? { x: 0 } : { x: '100%' }}
-        transition={{ type: 'tween', duration: 0.3 }}
-        style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          height: '100vh',
-          width: '70vw',
-          background: 'var(--bg-secondary)',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '2rem',
-          boxShadow: '-10px 0 30px rgba(0,0,0,0.5)',
-        }}
-      >
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            to={link.to}
-            smooth={true}
-            duration={500}
-            onClick={() => setMobileMenuOpen(false)}
-            style={{
-              cursor: 'pointer',
-              fontSize: '1.5rem',
-              fontFamily: 'var(--font-display)',
-              fontWeight: '600',
-            }}
-          >
-            {link.name}
-          </Link>
-        ))}
-        <a className="btn btn-primary" href="/Akila_Perera_CV.pdf" download onClick={() => setMobileMenuOpen(false)}>
-          Download CV
-        </a>
-      </motion.div>
-
-      {/* Hacky way to inject basic media queries since we are inline-styling heavily for speed */}
-      <style>{`
-        .desktop-nav { display: none; }
-        @media (min-width: 1100px) {
-          .desktop-nav { display: flex !important; }
-          .mobile-icon { display: none !important; }
-          .nav-cv { display: inline-flex !important; }
-        }
-      `}</style>
-    </motion.nav>
+      <AnimatePresence>
+        {open && (
+          <motion.div className="mobile-menu" initial={{ opacity: 0, clipPath: 'circle(0% at 91% 5%)' }} animate={{ opacity: 1, clipPath: 'circle(150% at 91% 5%)' }} exit={{ opacity: 0, clipPath: 'circle(0% at 91% 5%)' }} transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}>
+            <span className="mobile-menu-label">Navigate / 01—06</span>
+            {links.map((label, index) => (
+              <Link key={label} to={label.toLowerCase()} smooth duration={500} onClick={() => setOpen(false)}>
+                <span>0{index + 1}</span>{label}
+              </Link>
+            ))}
+            <a className="btn btn-primary" href="/Akila_Perera_CV.pdf" download>Download résumé <FaArrowDown /></a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 

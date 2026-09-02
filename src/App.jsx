@@ -8,21 +8,22 @@ import Projects from './components/Projects';
 import Videos from './components/Videos';
 import Contact from './components/Contact';
 
-function App() {
-  return (
-    <div className="app-container">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Videos />
-        <Contact />
-      </main>
-    </div>
-  );
-}
+const App = () => (
+  <div className="site-shell">
+    <div className="ambient ambient-one" aria-hidden="true" />
+    <div className="ambient ambient-two" aria-hidden="true" />
+    <div className="noise" aria-hidden="true" />
+    <Navbar />
+    <main>
+      <Hero />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Videos />
+      <Contact />
+    </main>
+  </div>
+);
 
 export default App;

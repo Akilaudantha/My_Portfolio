@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight, FaFigma, FaGithub } from 'react-icons/fa';
 
 const projects = [
@@ -92,7 +92,7 @@ const Projects = () => {
       }}
     >
       <motion.div className="projects-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-        <p className="projects-eyebrow">Selected work / 01—06</p>
+        <p className="projects-eyebrow">04 / Selected work</p>
         <h2 className="section-title">Featured <span className="gradient-text">Projects</span></h2>
         <p className="projects-intro">Explore my work one project at a time. Swipe or use the arrows to rotate the cube.</p>
       </motion.div>
@@ -101,13 +101,15 @@ const Projects = () => {
         <button className="project-arrow project-arrow--left" onClick={() => move(-1)} aria-label="Previous project"><FaChevronLeft aria-hidden="true" /></button>
 
         <div className="project-cube-scene" aria-live="polite">
-          <motion.article
-            key={project.title}
-            className="project-cube-card"
-            initial={{ opacity: 0, rotateY: direction * 82, scale: 0.88 }}
-            animate={{ opacity: 1, rotateY: 0, scale: 1 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.article
+              key={project.title}
+              className="project-cube-card"
+              initial={{ opacity: 0, rotateY: direction * 82, scale: 0.88 }}
+              animate={{ opacity: 1, rotateY: 0, scale: 1 }}
+              exit={{ opacity: 0, rotateY: direction * -82, scale: 0.88 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
             <span className="cube-edge cube-edge--top" aria-hidden="true" />
             <span className="cube-edge cube-edge--right" aria-hidden="true" />
             <div className="project-number">{String(activeIndex + 1).padStart(2, '0')}</div>
@@ -119,7 +121,8 @@ const Projects = () => {
               {project.tech.map((technology) => <span key={technology}>{technology}</span>)}
             </div>
             <a className="project-link" href="https://github.com/Akilaudantha" target="_blank" rel="noreferrer">View GitHub profile <FaGithub aria-hidden="true" /></a>
-          </motion.article>
+            </motion.article>
+          </AnimatePresence>
         </div>
 
         <button className="project-arrow project-arrow--right" onClick={() => move(1)} aria-label="Next project"><FaChevronRight aria-hidden="true" /></button>
