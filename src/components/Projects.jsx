@@ -1,180 +1,135 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaFigma, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaFigma, FaGithub } from 'react-icons/fa';
+
+const projects = [
+  {
+    title: 'Student Management System',
+    category: 'Web application',
+    description: 'A web application for managing student registration, marks, attendance, and academic records in one place.',
+    tech: ['HTML', 'CSS', 'PHP', 'JavaScript'],
+    icon: FaGithub,
+  },
+  {
+    title: 'E-Commerce Website',
+    category: 'Java web application',
+    description: 'An online shopping experience with product listings, cart management, and order processing, built for the DEA module.',
+    tech: ['Java', 'JSP', 'Servlets', 'MySQL'],
+    icon: FaGithub,
+  },
+  {
+    title: 'Class Attendance System',
+    category: 'Education platform',
+    description: 'A streamlined system that helps teachers record classroom attendance and monitor student participation.',
+    tech: ['Java', 'JSP', 'Servlets', 'MySQL'],
+    icon: FaGithub,
+  },
+  {
+    title: 'ReadkX',
+    category: 'Accessible reading app',
+    description: 'A mobile-first reading experience for people with visual and cognitive impairments, guided by inclusive typography, contrast, and UX.',
+    tech: ['Dart', 'Flutter', 'Figma'],
+    icon: FaFigma,
+  },
+  {
+    title: 'Air Quality Monitoring',
+    category: 'Monitoring dashboard',
+    description: 'A web system for retrieving and monitoring air-quality data, with administration tools and alert management.',
+    tech: ['PHP', 'JavaScript', 'HTML', 'SQL Server'],
+    icon: FaGithub,
+  },
+  {
+    title: 'UNIVISION',
+    category: 'University guidance app',
+    description: 'A Flutter app that helps students compare universities, explore degree programmes, and discover career paths using Z-scores.',
+    tech: ['Dart', 'Flutter', 'Firebase', 'Firestore'],
+    icon: FaGithub,
+  },
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Student Management System',
-      description: 'A web-based application designed to manage student records, including registration, marks, and attendance. Developed for academic administrative use.',
-      tech: ['HTML', 'CSS', 'PHP', 'JavaScript'],
-      link: '#',
-      icon: <FaGithub />
-    },
-    {
-      title: 'E-Commerce Web Site',
-      description: 'Designed as part of the DEA module, this Java-based project simulates basic online shopping experience including product listings, cart features, and order processing.',
-      tech: ['Java', 'JSP', 'Servlets', 'MySQL'],
-      link: '#',
-      icon: <FaGithub />
-    },
-    {
-      title: 'Class Attendance System',
-      description: 'A system to record and monitor student attendance to the teacher, designed for easily mark and track classroom presence.',
-      tech: ['Java', 'JSP', 'Servlets', 'MySQL'],
-      link: '#',
-      icon: <FaGithub />
-    },
-    {
-      title: 'ReadkX - Accessible Reading App',
-      description: 'Developed as part of a UI/UX Design project, a mobile-friendly reading platform designed to improve content accessibility for users with visual and cognitive impairments. Focused on inclusive typography, contrast, and user-centric design principles.',
-      tech: ['Dart', 'Flutter', 'Figma'],
-      link: '#',
-      icon: <FaFigma />
-    },
-    {
-      title: 'Air Quality Monitoring Web App',
-      description: 'Developed a web-based system to monitor and manage air quality data with real-time data fetching and admin panel functionality. Includes features for data retrieval and alert management.',
-      tech: ['PHP', 'JavaScript', 'HTML', 'SQL Server'],
-      link: '#',
-      icon: <FaGithub />
-    },
-    {
-      title: 'UNIVISION - University Guidance App',
-      description: 'Flutter-based mobile app to help students search universities, explore degree programs, and discover career paths based on Z-scores.',
-      tech: ['Dart', 'Flutter', 'Firebase', 'Firestore'],
-      link: '#',
-      icon: <FaGithub />
-    }
-  ];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const touchStart = useRef(null);
+
+  const selectProject = useCallback((nextIndex) => {
+    setActiveIndex((currentIndex) => {
+      const normalizedIndex = (nextIndex + projects.length) % projects.length;
+      if (normalizedIndex !== currentIndex) setDirection(normalizedIndex > currentIndex ? 1 : -1);
+      return normalizedIndex;
+    });
+  }, []);
+
+  const move = useCallback((step) => {
+    setDirection(step);
+    setActiveIndex((currentIndex) => (currentIndex + step + projects.length) % projects.length);
+  }, []);
+
+  const handleTouchEnd = (event) => {
+    if (touchStart.current === null) return;
+    const distance = event.changedTouches[0].clientX - touchStart.current;
+    if (Math.abs(distance) > 45) move(distance > 0 ? -1 : 1);
+    touchStart.current = null;
+  };
+
+  const project = projects[activeIndex];
+  const ProjectIcon = project.icon;
 
   return (
-    <section id="projects" className="section-container">
-      <motion.h2 
-        className="section-title"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        Featured <span className="gradient-text">Projects</span>
-      </motion.h2>
+    <section
+      id="projects"
+      className="section-container projects-section"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          move(-1);
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          move(1);
+        }
+      }}
+    >
+      <motion.div className="projects-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+        <p className="projects-eyebrow">Selected work / 01—06</p>
+        <h2 className="section-title">Featured <span className="gradient-text">Projects</span></h2>
+        <p className="projects-intro">Explore my work one project at a time. Swipe or use the arrows to rotate the cube.</p>
+      </motion.div>
 
-      <div className="responsive-grid projects-grid" style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(300px, 80vw, 320px), 1fr))',
-        gap: 'clamp(1.2rem, 3vw, 2rem)',
-        marginTop: '2rem'
-      }}>
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -10 }}
-            className="glass-panel project-card"
-            style={{
-              padding: '2rem',
-              display: 'flex',
-              flexDirection: 'column',
-              height: '100%',
-              position: 'relative',
-              overflow: 'hidden',
-              group: 'true'
-            }}
+      <div className="project-showcase" onTouchStart={(event) => { touchStart.current = event.touches[0].clientX; }} onTouchEnd={handleTouchEnd}>
+        <button className="project-arrow project-arrow--left" onClick={() => move(-1)} aria-label="Previous project"><FaChevronLeft aria-hidden="true" /></button>
+
+        <div className="project-cube-scene" aria-live="polite">
+          <motion.article
+            key={project.title}
+            className="project-cube-card"
+            initial={{ opacity: 0, rotateY: direction * 82, scale: 0.88 }}
+            animate={{ opacity: 1, rotateY: 0, scale: 1 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Top decorative gradient line */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '3px',
-              background: 'var(--accent-gradient)'
-            }} />
-
-            <div className="project-card-top" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '14px',
-                background: 'linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(127, 57, 251, 0.2))',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.6rem',
-                color: 'var(--accent-primary)',
-                border: '2px solid rgba(0, 212, 255, 0.2)',
-                transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.borderColor = 'var(--accent-primary)';
-                e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.3)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.2)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}>
-                <FaExternalLinkAlt />
-              </div>
-              <a href={project.link} target="_blank" rel="noreferrer" style={{ 
-                fontSize: '1.8rem', 
-                color: 'var(--text-secondary)', 
-                transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                cursor: 'pointer'
-              }} 
-              onMouseOver={e=>{
-                e.currentTarget.style.color='var(--accent-primary)';
-                e.currentTarget.style.transform='scale(1.2)';
-              }} 
-              onMouseOut={e=>{
-                e.currentTarget.style.color='var(--text-secondary)';
-                e.currentTarget.style.transform='scale(1)';
-              }}>
-                {project.icon}
-              </a>
+            <span className="cube-edge cube-edge--top" aria-hidden="true" />
+            <span className="cube-edge cube-edge--right" aria-hidden="true" />
+            <div className="project-number">{String(activeIndex + 1).padStart(2, '0')}</div>
+            <div className="project-icon"><ProjectIcon aria-hidden="true" /></div>
+            <p className="project-category">{project.category}</p>
+            <h3>{project.title}</h3>
+            <p className="project-description">{project.description}</p>
+            <div className="project-tags" aria-label="Technologies used">
+              {project.tech.map((technology) => <span key={technology}>{technology}</span>)}
             </div>
+            <a className="project-link" href="https://github.com/Akilaudantha" target="_blank" rel="noreferrer">View GitHub profile <FaGithub aria-hidden="true" /></a>
+          </motion.article>
+        </div>
 
-            <h3 style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '1rem', letterSpacing: '-0.5px' }}>{project.title}</h3>
-            
-            <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '1.5rem', flexGrow: 1, fontSize: '1rem' }}>
-              {project.description}
-            </p>
+        <button className="project-arrow project-arrow--right" onClick={() => move(1)} aria-label="Next project"><FaChevronRight aria-hidden="true" /></button>
+      </div>
 
-            <div className="tag-row project-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.7rem' }}>
-              {project.tech.map((tech, tIndex) => (
-                <span 
-                  key={tIndex}
-                  style={{
-                    fontSize: '0.85rem',
-                    color: 'var(--accent-primary)',
-                    fontFamily: 'monospace',
-                    fontWeight: '700',
-                    background: 'rgba(0, 212, 255, 0.1)',
-                    border: '1px solid rgba(0, 212, 255, 0.2)',
-                    padding: '0.5rem 0.9rem',
-                    borderRadius: '8px',
-                    transition: 'all 0.3s ease',
-                    cursor: 'default'
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.background = 'rgba(0, 212, 255, 0.2)';
-                    e.currentTarget.style.borderColor = 'var(--accent-primary)';
-                    e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 212, 255, 0.2)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.background = 'rgba(0, 212, 255, 0.1)';
-                    e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.2)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+      <div className="project-pagination" aria-label="Choose a project">
+        {projects.map((item, index) => (
+          <button key={item.title} className={index === activeIndex ? 'is-active' : ''} onClick={() => selectProject(index)} aria-label={`Show project ${index + 1}: ${item.title}`} aria-current={index === activeIndex ? 'true' : undefined}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+          </button>
         ))}
       </div>
     </section>

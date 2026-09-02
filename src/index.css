@@ -1436,3 +1436,302 @@ section,
     width: min(100%, 270px);
   }
 }
+
+/* Projects — interactive cube carousel */
+.projects-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: min(580px, 75vw);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 52%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(127, 57, 251, 0.16), transparent 67%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.projects-heading {
+  text-align: center;
+}
+
+.projects-heading .section-title {
+  margin-bottom: 2.5rem;
+}
+
+.projects-eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.projects-intro {
+  width: min(100%, 610px);
+  margin: 0 auto 2.5rem;
+  color: var(--text-secondary);
+}
+
+.project-showcase {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 760px) 52px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 3vw, 2rem);
+  width: 100%;
+  perspective: 1400px;
+}
+
+.project-cube-scene {
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+}
+
+.project-cube-card {
+  width: 100%;
+  min-height: 400px;
+  padding: clamp(1.5rem, 5vw, 3.4rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.025)), var(--bg-secondary);
+  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.4), 20px 18px 0 rgba(127, 57, 251, 0.08);
+  transform-origin: center;
+  transform-style: preserve-3d;
+}
+
+.cube-edge {
+  position: absolute;
+  pointer-events: none;
+}
+
+.cube-edge--top {
+  left: 14px;
+  right: -15px;
+  top: -16px;
+  height: 16px;
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.32), rgba(127, 57, 251, 0.18));
+  clip-path: polygon(0 100%, 15px 0, 100% 0, calc(100% - 15px) 100%);
+}
+
+.cube-edge--right {
+  top: -8px;
+  right: -16px;
+  bottom: 8px;
+  width: 16px;
+  background: linear-gradient(180deg, rgba(127, 57, 251, 0.3), rgba(127, 57, 251, 0.08));
+  clip-path: polygon(0 8px, 100% 0, 100% calc(100% - 8px), 0 100%);
+}
+
+.project-number {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  color: rgba(255, 255, 255, 0.07);
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.project-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  border-radius: 12px;
+  color: var(--accent-primary);
+  background: rgba(0, 212, 255, 0.09);
+  box-shadow: inset 0 0 22px rgba(0, 212, 255, 0.08);
+  font-size: 1.55rem;
+}
+
+.project-category {
+  margin-bottom: 0.55rem;
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-cube-card h3 {
+  max-width: 82%;
+  margin-bottom: 1rem;
+  font-size: clamp(1.75rem, 5vw, 2.65rem);
+  letter-spacing: -0.04em;
+}
+
+.project-description {
+  max-width: 640px;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.8rem;
+}
+
+.project-tags span {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 6px;
+  color: var(--accent-primary);
+  background: rgba(0, 212, 255, 0.07);
+  font-family: monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.project-link:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.project-arrow {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.055);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.project-arrow:hover,
+.project-arrow:focus-visible {
+  border-color: var(--accent-primary);
+  color: var(--bg-primary);
+  background: var(--accent-primary);
+  box-shadow: var(--glow-primary);
+  outline: none;
+}
+
+.project-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 2rem;
+}
+
+.project-pagination button {
+  min-width: 42px;
+  min-height: 42px;
+  border: 0;
+  color: var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0;
+}
+
+.project-pagination button::after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 0.35rem auto 0;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.project-pagination button.is-active {
+  color: var(--accent-primary);
+}
+
+.project-pagination button.is-active::after {
+  width: 34px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.7);
+}
+
+@media (max-width: 680px) {
+  .projects-intro {
+    margin-bottom: 1.75rem;
+  }
+
+  .project-showcase {
+    grid-template-columns: 48px 1fr 48px;
+    gap: 0;
+  }
+
+  .project-cube-scene {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-height: 490px;
+  }
+
+  .project-cube-card {
+    min-height: 455px;
+    padding: 1.45rem !important;
+  }
+
+  .project-arrow {
+    z-index: 2;
+    grid-row: 2;
+    margin-top: 1rem;
+  }
+
+  .project-arrow--left { grid-column: 1; }
+  .project-arrow--right { grid-column: 3; }
+
+  .project-cube-card h3 {
+    max-width: 100%;
+    font-size: 1.65rem;
+  }
+
+  .project-number { font-size: 4.5rem; }
+
+  .project-pagination {
+    margin-top: -3.2rem;
+    padding: 0 3rem;
+  }
+
+  .project-pagination button { min-width: 30px; }
+  .project-pagination button span { font-size: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-cube-card { transform: none !important; }
+}
